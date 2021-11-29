@@ -1,29 +1,46 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import Menu from '../../src/components/Menu'
+import { useRouter } from 'next/router'
 import { Container } from './styles'
 import { parseCookies } from 'nookies'
+import api from '../../src/services/api'
 const CadastroProduto = () => {
-  const [data, setData] = useState([])
-
   const [nomeProduto, setNomeProduto] = useState('')
 
-  const [tipoProduto, setPassword] = useState('')
-
-
+  const [tipoProduto, setTipoProduto] = useState('')
+  const [quantidade, setQuantidade] = useState(0)
+  const [preco, setPreco] = useState(0)
+  const [descricao, setDescricao] = useState('')
+  const router = useRouter()
   const cookies = parseCookies()
 
-  const handleProduct = () => {
-    useEffect(() => {
-      api
-        .post('/products', {
+  const handleProduct = async (e) => {
+    e.preventDefault()
+
+    try {
+      const { data: data } = await api.post(
+        'product',
+        {
+          name: nomeProduto,
+          typeProduct: tipoProduto,
+          quantity: quantidade,
+          price: preco,
+          description: descricao,
+          has_stock: true,
+        },
+        {
           headers: {
             Authorization: `Bearer ${cookies.token}`,
+            'Content-Type': 'application/json',
           },
-        })
-        .then((resp) => {setData(resp.data.products)})
-        .catch((err) => console.log(err))
-    }, [])
+        },
+      )
+
+      router.push('/estoque')
+    } catch (error) {
+      console.log(error)
+    }
   }
   return (
     <Container>
@@ -41,32 +58,42 @@ const CadastroProduto = () => {
 
       <section className="form">
         <h2>Cadastro de Produto</h2>
-        <form onSubmit={handleProduct}>
+        <form method="POST" onSubmit={handleProduct}>
+          <label for="nomeProduto">Digite o nome do produto</label>
           <input
-            placeholder="Digite o nome do produto"
             value={nomeProduto}
             onChange={(e) => setNomeProduto(e.target.value)}
+            name="nomeProduto"
           />
+          <label for="tipoProduto">Digite o tipo/categoria do produto</label>
           <input
-            placeholder="Digite o tipo do produto"
-            /*  value={password} */
-            /* onChange={(e) => setPassword(e.target.value)}
-            type="password" */
+            name="tipoProduto"
+            value={tipoProduto}
+            onChange={(e) => setTipoProduto(e.target.value)}
           />
+          <label for="quantidade">
+            Digite a quantidade que será atribuida ao estoque deste produto
+          </label>
           <input
-            placeholder="Quantidade"
-            /*  value={password} */
-            /* onChange={(e) => setPassword(e.target.value)}
-             */
+            value={quantidade}
+            onChange={(e) => setQuantidade(e.target.value)}
             type="number"
+            name="quantidade"
           />
+          <label for="preco">Digite o preço atribuido ao produto</label>
           <input
-            placeholder="preço"
-            /*  value={password} */
-            /* onChange={(e) => setPassword(e.target.value)}
-            type="password" */
+            value={preco}
+            onChange={(e) => setPreco(e.target.value)}
             type="number"
+            name="preco"
           />
+          <label for="descricao">Descreva seu produto</label>
+          <textarea
+            maxLength="320"
+            name="descricao"
+            value={descricao}
+            onChange={(e) => setDescricao(e.target.value)}
+          ></textarea>
           <button type="submit" className="button">
             Cadastrar
           </button>

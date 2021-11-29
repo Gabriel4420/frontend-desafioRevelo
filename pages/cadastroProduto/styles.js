@@ -7,6 +7,10 @@ export const Container = styled.div`
   header {
     width: 100%;
   }
+
+  h2 {
+    color: #1480de;
+  }
   .form {
     display: flex;
     flex-direction: column;
@@ -38,12 +42,20 @@ export const Container = styled.div`
     padding-left: 20px;
     font-size: 20px;
 
-    &::placeholder {
-      color: #1480de;
-      font-weight: 200;
-      text-shadow: none;
-    }
     box-shadow: 5px 4px 5px -3px rgba(0, 0, 0, 0.64);
+  }
+
+  .form label {
+    color: #1480de;
+    font-weight: 500;
+    text-shadow: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50%;
+    margin-bottom: 5px;
+    margin-left: 10px;
   }
 
   .form button {
@@ -60,5 +72,24 @@ export const Container = styled.div`
 
   .form button:hover {
     background-color: #062643;
+  }
+
+  .form textarea {
+    height: 150px;
+    width: 50%;
+    resize: none;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #1480de;
+    font-weight: bold;
+    padding: 5px 20px;
+    &:focus {
+      outline: 1px solid #1480de;
+    }
+    &::placeholder {
+      color: #1480de;
+      font-weight: 200;
+      text-shadow: none;
+    }
   }
 `

@@ -1,13 +1,22 @@
 import Head from 'next/head'
+import {useState, useEffect} from 'react'
 import { useRouter } from 'next/router'
 /* Estilos Próprios */
 import { Container } from './styles'
 import Menu from '../../src/components/Menu'
 import Table from '../../src/components/Table'
 import ButtonAdd from '../../src/components/ButtonAdd'
+import api from '../../src/services/api'
 
 const Estoque = () => {
   const router = useRouter()
+  const [data, setData] = useState([])
+  
+  useEffect(() => {
+     api.get('users').then((resp) => setData(resp.data.users))
+  },[])
+
+
 
   return (
     <Container>
@@ -23,8 +32,9 @@ const Estoque = () => {
       <header>
         <Menu />
       </header>
-
+  
       <div className="containertable">
+       
         <div className="table">
           <Table />
         </div>
