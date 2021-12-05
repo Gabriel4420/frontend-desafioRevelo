@@ -26,7 +26,12 @@ const Register = () => {
         name: name,
         email: email,
         password: saltpassword,
-      })
+      },{
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+        },
+      },)
 
       router.push('/login')
     } catch (error) {
