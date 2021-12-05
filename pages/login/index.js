@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import * as C from './styles'
+import Container from './styles'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Menu from '../../src/components/Menu'
@@ -48,7 +48,7 @@ const Login = () => {
   }
 
   return (
-    <C.Container>
+    <Container>
       <Head>
         <title>ComunikMe - Login</title>
         <meta
@@ -84,7 +84,7 @@ const Login = () => {
           </Link>
         </form>
       </section>
-    </C.Container>
+    </Container>
   )
 }
 

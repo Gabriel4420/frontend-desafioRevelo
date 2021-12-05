@@ -14,7 +14,7 @@ const Table = () => {
       })
       .then((resp) => setData(resp.data.products))
       .catch((err) => console.log(err))
-  }, [])
+  }, [cookies])
 
   return (
     <Container>

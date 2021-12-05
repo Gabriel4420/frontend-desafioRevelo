@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+ const Container = styled.div`
   display: flex;
   flex-direction: column;
 
@@ -92,4 +92,7 @@ export const Container = styled.div`
       text-shadow: none;
     }
   }
+
 `
+
+export default Container

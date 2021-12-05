@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import Head from 'next/head'
 import Menu from '../../src/components/Menu'
 import api from '../../src/services/api'
 import bcrypt from 'bcryptjs'
-import * as C from './styles'
-import { setCookie } from 'nookies'
+import Container from './container'
+import InputPassword from './inputPassword'
 
 const Register = () => {
-  const [token, setToken] = useState()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [typeCamp, setTypeCamp] = useState('password')
@@ -31,7 +29,6 @@ const Register = () => {
       })
 
       router.push('/login')
-      
     } catch (error) {
       console.log(error)
     }
@@ -46,7 +43,7 @@ const Register = () => {
   }
 
   return (
-    <C.Container>
+    <Container>
       <Head>
         <title>ComunikMe - Cadastrar Usuário</title>
         <meta
@@ -80,15 +77,18 @@ const Register = () => {
               alignItems: 'center',
             }}
           >
-            <C.InputPassword
+            <InputPassword
               placeholder="Digite sua senha"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type={typeCamp}
-              
             />
-            <button  onDoubleClick={handleCampText} onClick={ handleCampPassWord } className="showPassword">
-             {typeCamp == 'password' ? '👁️':'🔑'}
+            <button
+              onDoubleClick={handleCampText}
+              onClick={handleCampPassWord}
+              className="showPassword"
+            >
+              {typeCamp == 'password' ? '👁️' : '🔑'}
             </button>
           </div>
           <button type="submit" className="button">
@@ -96,7 +96,7 @@ const Register = () => {
           </button>
         </form>
       </section>
-    </C.Container>
+    </Container>
   )
 }
 

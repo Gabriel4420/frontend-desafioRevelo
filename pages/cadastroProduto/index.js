@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import Head from 'next/head'
 import Menu from '../../src/components/Menu'
 import { useRouter } from 'next/router'
-import { Container } from './styles'
 import { parseCookies } from 'nookies'
 import api from '../../src/services/api'
+import Container from './styles'
 const CadastroProduto = () => {
   const [nomeProduto, setNomeProduto] = useState('')
 
@@ -59,19 +59,19 @@ const CadastroProduto = () => {
       <section className="form">
         <h2>Cadastro de Produto</h2>
         <form method="POST" onSubmit={handleProduct}>
-          <label for="nomeProduto">Digite o nome do produto</label>
+          <label >Digite o nome do produto</label>
           <input
             value={nomeProduto}
             onChange={(e) => setNomeProduto(e.target.value)}
             name="nomeProduto"
           />
-          <label for="tipoProduto">Digite o tipo/categoria do produto</label>
+          <label >Digite o tipo/categoria do produto</label>
           <input
             name="tipoProduto"
             value={tipoProduto}
             onChange={(e) => setTipoProduto(e.target.value)}
           />
-          <label for="quantidade">
+          <label >
             Digite a quantidade que será atribuida ao estoque deste produto
           </label>
           <input
@@ -80,14 +80,14 @@ const CadastroProduto = () => {
             type="number"
             name="quantidade"
           />
-          <label for="preco">Digite o preço atribuido ao produto</label>
+          <label >Digite o preço atribuido ao produto</label>
           <input
             value={preco}
             onChange={(e) => setPreco(e.target.value)}
             type="number"
             name="preco"
           />
-          <label for="descricao">Descreva seu produto</label>
+          <label >Descreva seu produto</label>
           <textarea
             maxLength="320"
             name="descricao"

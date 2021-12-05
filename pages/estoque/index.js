@@ -2,7 +2,7 @@ import Head from 'next/head'
 import {useState, useEffect} from 'react'
 import { useRouter } from 'next/router'
 /* Estilos Próprios */
-import { Container } from './styles'
+import  Container  from './styles'
 import Menu from '../../src/components/Menu'
 import Table from '../../src/components/Table'
 import ButtonAdd from '../../src/components/ButtonAdd'

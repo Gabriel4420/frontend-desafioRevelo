@@ -1,10 +1,10 @@
 import React from 'react'
-import * as C from './styles'
+import Container from './styles'
 import Head from 'next/head'
 import Menu from '../../src/components/Menu'
 const Vendas = () => {
   return (
-    <C.Container>
+    <Container>
       <Head>
         <title>ComunikMe - Vitrine</title>
         <meta
@@ -21,7 +21,7 @@ const Vendas = () => {
           Vitrine Comunik<span id="me">Me</span>
         </h1>
       </div>
-    </C.Container>
+    </Container>
   )
 }
 
