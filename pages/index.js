@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Photo from '../src/assets/logo.png'
 
-import Menu from '../src/components/menu'
+import Menu from '../src/components/Menu'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
