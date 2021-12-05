@@ -28,7 +28,7 @@ const Register = () => {
         password: saltpassword,
       },{
         headers: {
-          'Access-Control-Allow-Origin' : '*',
+          'Access-Control-Allow-Origin' : 'https://desafiorevelo-backend.herokuapp.com/user',
           'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
         },
       },)
