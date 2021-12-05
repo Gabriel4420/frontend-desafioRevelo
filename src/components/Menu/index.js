@@ -10,12 +10,12 @@ const Menu = () => {
   const [token, setToken] = useState()
   const router = useRouter()
 
-  useEffect(() => {
+  /* useEffect(() => {
     api
       .get('users')
       .then((resp) => setToken(resp.data.token))
       .catch((err) => console.log(err))
-  }, [])
+  }, []) */
 
   const handleLogout = () => {
     console.log('token:' + token)
@@ -28,7 +28,7 @@ const Menu = () => {
   }
   return (
     <Container>
-      {cookies.token ? (
+      {cookies.token !== undefined ? (
         <ul className="nav-list">
           <li>
             <Link href="/">Home</Link>

@@ -6,15 +6,22 @@ import { Container } from './styles'
 import Menu from '../../src/components/Menu'
 import Table from '../../src/components/Table'
 import ButtonAdd from '../../src/components/ButtonAdd'
+import { parseCookies } from 'nookies'
 import api from '../../src/services/api'
 
 const Estoque = () => {
   const router = useRouter()
   const [data, setData] = useState([])
+  const cookies = parseCookies()
   
-  useEffect(() => {
-     api.get('users').then((resp) => setData(resp.data.users))
-  },[])
+  /* useEffect(() => {
+     api.get('users',{
+      headers: {
+        Authorization: `Bearer ${cookies.token}`,
+        'Content-Type': 'application/json',
+      },
+    },).then((resp) => setData(resp.data.users))
+  },[]) */
 
 
 

@@ -25,7 +25,7 @@ const Login = () => {
 
       const { data: data } = await api.post('login', {
         email: email,
-        password: saltpassword,
+        password: saltpassword
       })
 
       if (
