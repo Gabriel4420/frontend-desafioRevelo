@@ -64,12 +64,14 @@ const CadastroProduto = () => {
             value={nomeProduto}
             onChange={(e) => setNomeProduto(e.target.value)}
             name="nomeProduto"
+            required
           />
           <label >Digite o tipo/categoria do produto</label>
           <input
             name="tipoProduto"
             value={tipoProduto}
             onChange={(e) => setTipoProduto(e.target.value)}
+            required
           />
           <label >
             Digite a quantidade que será atribuida ao estoque deste produto
@@ -79,6 +81,7 @@ const CadastroProduto = () => {
             onChange={(e) => setQuantidade(e.target.value)}
             type="number"
             name="quantidade"
+            required
           />
           <label >Digite o preço atribuido ao produto</label>
           <input
@@ -86,6 +89,7 @@ const CadastroProduto = () => {
             onChange={(e) => setPreco(e.target.value)}
             type="number"
             name="preco"
+            required
           />
           <label >Descreva seu produto</label>
           <textarea

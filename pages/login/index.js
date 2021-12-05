@@ -68,12 +68,15 @@ const Login = () => {
             placeholder="Digite seu email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
+            type="email"
           />
           <input
             placeholder="Digite sua senha"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
+            required
           />
           <button type="submit" className="button">
             Entrar
