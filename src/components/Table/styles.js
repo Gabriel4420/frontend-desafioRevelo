@@ -22,8 +22,8 @@ export const Container = styled.table`
     height: 40px;
     text-align: center;
     white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
-    
     padding-left: 5px;
     padding-right: 5px;
   }
