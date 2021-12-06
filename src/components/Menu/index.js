@@ -36,9 +36,9 @@ const Menu = () => {
           <li>
             <Link href="/estoque">Estoque</Link>
           </li>
-          <li>
+         {/*  <li>
             <Link href="/vendas">Vendas</Link>
-          </li>
+          </li> */}
           <li>
             <button
           
@@ -57,9 +57,9 @@ const Menu = () => {
           <li>
             <Link href="/login">Login</Link>
           </li>
-          <li>
+         {/*  <li>
             <Link href="/vendas">Vendas</Link>
-          </li>
+          </li> */}
         </ul>
       )}
     </Container>
